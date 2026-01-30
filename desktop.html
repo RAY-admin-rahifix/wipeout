@@ -138,18 +138,28 @@
             let eyesModeActive = false;
 
             $(document).keydown(function(e) {
-                const key = e.key;
-                
-                // Check if key matches Konami sequence
-                if (key.toLowerCase() === konamiCode[konamiIndex].toLowerCase() || 
-                    e.key === konamiCode[konamiIndex]) {
+                let key = e.key;
+                let currentCode = konamiCode[konamiIndex];
+                let isMatch = false;
+
+                // Check if it's an arrow key
+                if (['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight'].includes(key)) {
+                    isMatch = (key === currentCode);
+                } else {
+                    // For letter keys, compare case-insensitively
+                    isMatch = (key.toLowerCase() === currentCode.toLowerCase());
+                }
+
+                if (isMatch) {
                     konamiIndex++;
+                    console.log('Konami progress: ' + konamiIndex + '/' + konamiCode.length);
                 } else {
                     konamiIndex = 0;
                 }
 
                 // If full sequence entered
                 if (konamiIndex === konamiCode.length) {
+                    console.log('Konami code activated!');
                     activateEyesMode();
                     konamiIndex = 0;
                 }
