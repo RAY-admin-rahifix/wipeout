@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wipe Out Car Wash</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="shdes.css">
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="#home"><i class="fas fa-home"></i> Home</a></li>
+            <li><a href="#about"><i class="fas fa-info-circle"></i> About</a></li>
+            <li><a href="#services"><i class="fas fa-concierge-bell"></i> Services</a></li>
+            <li><a href="#pricing"><i class="fas fa-dollar-sign"></i> Pricing</a></li>
+        </ul>
+    </nav>
+
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <i class="fas fa-car-side" style="font-size: 4rem; margin-bottom: 1rem;"></i>
+            <h1>Wipe Out Car Wash</h1>
+            <p>Professional car washing by dedicated 6th graders</p>
+            <a href="#about" class="cta-button">Learn More</a>
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="container">
+            <h2><i class="fas fa-users"></i> About Us</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>We are a group of six 6th graders who decided to start a car washing business together. We wanted to earn our own money, learn responsibility, and work as a team.</p>
+                    <p>Our goal is to provide good, reliable car washes while being friendly and hardworking. We all help each other to make sure every car is clean and looks great when we're finished.</p>
+                    <p>We started this business to gain experience and show that 6th graders can work together to run a small business. Thank you for supporting us!</p>
+                </div>
+                <div class="about-image">
+                    <i class="fas fa-hand-sparkles"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services">
+        <div class="container">
+            <h2><i class="fas fa-star"></i> Our Services</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <i class="fas fa-car"></i>
+                    <h3>Exterior Wash</h3>
+                    <p>Thorough cleaning of your car's exterior, removing dirt and grime.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-wind"></i>
+                    <h3>Interior Cleaning</h3>
+                    <p>Dust and vacuum the inside for a fresh, clean interior.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-tint"></i>
+                    <h3>Wax & Shine</h3>
+                    <p>Apply wax for a protective shine that lasts.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="pricing">
+        <div class="container">
+            <h2><i class="fas fa-dollar-sign"></i> Pricing & Packages</h2>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <h3>Basic Wash</h3>
+                    <div class="price">$8</div>
+                    <ul style="list-style: none; text-align: left; margin: 1rem 0;">
+                        <li><i class="fas fa-check" style="color: #34a853;"></i> Exterior wash</li>
+                        <li><i class="fas fa-check" style="color: #34a853;"></i> Wheel cleaning</li>
+                    </ul>
+                    <a href="#" class="pricing-btn">Choose Basic</a>
+                </div>
+                <div class="pricing-card featured">
+                    <h3>Full Service</h3>
+                    <div class="price">$15</div>
+                    <span style="background: #4285f4; color: white; padding: 0.25rem 0.75rem; border-radius: 20px; font-size: 0.8rem;">Most Popular</span>
+                    <ul style="list-style: none; text-align: left; margin: 1rem 0;">
+                        <li><i class="fas fa-check" style="color: #34a853;"></i> Everything in Basic</li>
+                        <li><i class="fas fa-check" style="color: #34a853;"></i> Interior vacuum</li>
+                        <li><i class="fas fa-check" style="color: #34a853;"></i> Wax & shine</li>
+                    </ul>
+                    <a href="#" class="pricing-btn">Choose Full Service</a>
+                </div>
+                <div class="pricing-card">
+                    <h3>Deluxe Package</h3>
+                    <div class="price">$22</div>
+                    <ul style="list-style: none; text-align: left; margin: 1rem 0;">
+                        <li><i class="fas fa-check" style="color: #34a853;"></i> Everything in Full Service</li>
+                        <li><i class="fas fa-check" style="color: #34a853;"></i> Tire shine</li>
+                        <li><i class="fas fa-check" style="color: #34a853;"></i> Dashboard wipe</li>
+                        <li><i class="fas fa-check" style="color: #34a853;"></i> Air freshener</li>
+                    </ul>
+                    <a href="#" class="pricing-btn">Choose Deluxe</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-smooth-scroll/1.5.5/jquery.smooth-scroll.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('a[href^="#"]').smoothScroll({
+                speed: 800
+            });
+
+            // Add scroll animations
+            function checkVisibility() {
+                $('section').each(function() {
+                    var elementTop = $(this).offset().top;
+                    var elementBottom = elementTop + $(this).outerHeight();
+                    var viewportTop = $(window).scrollTop();
+                    var viewportBottom = viewportTop + $(window).height();
+
+                    if (elementBottom > viewportTop && elementTop < viewportBottom) {
+                        $(this).addClass('visible');
+                    }
+                });
+            }
+
+            // Check visibility on load and scroll
+            checkVisibility();
+            $(window).on('scroll', checkVisibility);
+        });
+    </script>
+</body>
+</html>
